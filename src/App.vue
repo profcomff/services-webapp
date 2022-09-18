@@ -3,9 +3,4 @@
 </template>
 
 <script>
-console.log("Ok, services");
-export default {
-  data(){
-  }
-}
 </script>
