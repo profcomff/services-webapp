@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [{
-  path: '/apps',
-  name: 'Services',
+  path: '/',
+  name: 'services',
   component: () => import('../views/Services.vue')
 }];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('/apps'),
   routes
 });
 
