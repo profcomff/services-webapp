@@ -2,19 +2,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/apps',
     name: 'services',
     component: () => import('../views/Services.vue')
   },
   {
-    path: '/404',
+    path: '/apps/404',
     name: 'not-found',
     component: () => import('../views/NotFound.vue')
   }
 ];
 
 const router = createRouter({
-  history: createWebHistory('/apps'),
+  history: createWebHistory('/'),
   routes
 });
 
