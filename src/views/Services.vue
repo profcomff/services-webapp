@@ -2,10 +2,7 @@
   <div v-if="!this.loaded" class='timetable'>
     <div class="lds-dual-ring"></div>
   </div>
-  <div v-else
-    class="container"
-    v-bind:style="{ paddingBottom: isMobile() ? '56px' : '0px' }"
-  >
+  <div v-else class="container">
     <div class="category" v-for="category in buttons" :key="category.name">
       <grid-view
         v-if="category.type == 'grid3'"
@@ -67,24 +64,14 @@ export default {
     route(to) {
       this.$emit("route", window.location.pathname, to);
     },
-    isMobile() {
-      if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
   },
 };
 </script>
 
 <style scoped>
 .container {
-  padding: 66px 10px;
+  padding: 10px;
+  padding-bottom: 56px;
   display: flex;
   flex-direction: column;
   gap: 10px;
