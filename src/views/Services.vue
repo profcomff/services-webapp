@@ -38,7 +38,7 @@ export default {
   props: {
     mobile: Boolean,
   },
-  async beforeMount() {
+  mounted() {
     document.dispatchEvent(
       new CustomEvent("change-header-layout", {
         detail: {
@@ -47,6 +47,18 @@ export default {
         },
       })
     );
+  },
+  updated() {
+    document.dispatchEvent(
+      new CustomEvent("change-header-layout", {
+        detail: {
+          layoutName: "plain",
+          text: "Твой физфак!",
+        },
+      })
+    );
+  },
+  async beforeMount() {
     try {
       try {
         let res = await fetch(`${process.env.VUE_APP_API_NAVBAR}/apps`);
