@@ -33,14 +33,20 @@ export default {
     return {
       buttons: [],
       loaded: false,
-      pageId: 0,
     };
   },
   props: {
     mobile: Boolean,
   },
   async beforeMount() {
-    document.dispatchEvent(new CustomEvent("change-page", { detail: this.pageId}));
+    document.dispatchEvent(
+      new CustomEvent("change-header-layout", {
+        detail: {
+          layoutName: "plain",
+          text: "Твой физфак!",
+        },
+      })
+    );
     try {
       try {
         let res = await fetch(`${process.env.VUE_APP_API_NAVBAR}/apps`);
