@@ -1,5 +1,5 @@
 <template>
-    <a :href="info.path" target="_blank">
+    <a :href="path" target="_blank">
       <span class="material-symbols-sharp icon">{{ info.icon }}</span>
       {{ info.text }}
     </a>
