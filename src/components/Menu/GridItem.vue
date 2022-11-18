@@ -1,16 +1,23 @@
 <template>
-  <a :href="info.path" target="_blank">
+  <a :href="path" target="_blank">
     <img :src="info.icon.src" alt="info.text" />
     {{ info.text }}
   </a>
 </template>
 
 <script>
+import { format_url } from "@/utils/urls";
+
 export default {
   name: "grid-item",
   props: {
     info: Object,
   },
+  computed: {
+    path() {
+      return format_url(this.info.path)
+    }
+  }
 };
 </script>
 

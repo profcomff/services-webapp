@@ -6,11 +6,18 @@
 </template>
 
 <script>
+import { format_url } from "@/utils/urls";
+
 export default {
   name: "list-item",
   props: {
     info: Object,
   },
+  computed: {
+    path() {
+      return format_url(this.info.path)
+    }
+  }
 };
 </script>
 
