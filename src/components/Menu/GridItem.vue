@@ -1,8 +1,12 @@
 <template>
-  <a :href="path" target="_blank">
+  <a class="link" :href="path" target="_blank" v-if="path.startsWith('http')">
     <img :src="info.icon.src" alt="info.text" />
     {{ info.text }}
   </a>
+  <router-link class="link" :to="path" v-else>
+    <img :src="info.icon.src" alt="info.text" />
+    {{ info.text }}
+  </router-link>
 </template>
 
 <script>
@@ -15,14 +19,14 @@ export default {
   },
   computed: {
     path() {
-      return format_url(this.info.path)
-    }
-  }
+      return format_url(this.info.path);
+    },
+  },
 };
 </script>
 
 <style scoped>
-a {
+.link {
   align-self: flex-start;
   flex-grow: 1;
   flex-shrink: 1;
@@ -41,7 +45,7 @@ a {
   gap: 2px;
 }
 
-img {
+.link img {
   border: 1px solid gray;
   border-radius: 25%;
   box-shadow: 1px 1px lightgray;
