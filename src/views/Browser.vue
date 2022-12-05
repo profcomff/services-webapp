@@ -2,7 +2,7 @@
   <div v-if="!this.loaded" id="loading-wrapper">
     <div class="lds-dual-ring"></div>
   </div>
-  <iframe :class="!this.loaded ? 'hidden' : ''" id="browser" :src="url" frameborder="0" @load="on_load_complete">
+  <iframe :class="!this.loaded ? 'hidden' : ''" id="browser" :src="url" frameborder="0" @load="on_load_complete" allow="camera">
     <p>Ваш браузер не поддерживает IFrame</p>
   </iframe>
 </template>
