@@ -10,11 +10,6 @@ const routes = [
     path: '/apps/browser',
     name: 'browser',
     component: () => import('../views/Browser.vue')
-  },
-  {
-    path: '/apps/404',
-    name: 'not-found',
-    component: () => import('../views/NotFound.vue')
   }
 ];
 
