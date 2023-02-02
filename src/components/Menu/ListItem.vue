@@ -8,14 +8,14 @@
         <span class="material-symbols-sharp icon">{{ info.icon }}</span>
         {{ info.text }}
     </a>
-    <router-link
+    <RouterLink
         v-else
         class="link"
         :to="path"
     >
         <span class="material-symbols-sharp icon">{{ info.icon }}</span>
         {{ info.text }}
-    </router-link>
+    </RouterLink>
 </template>
 
 <script>

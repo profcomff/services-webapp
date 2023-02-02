@@ -14,12 +14,12 @@
             :key="category.name"
             class="category"
         >
-            <grid-view
+            <GridView
                 v-if="category.type == 'grid3'"
                 :info="category"
                 @navigate="route"
             />
-            <list-view
+            <ListView
                 v-else-if="category.type == 'list'"
                 :info="category"
                 @navigate="route"

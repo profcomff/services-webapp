@@ -11,7 +11,7 @@
         />
         {{ info.text }}
     </a>
-    <router-link
+    <RouterLink
         v-else
         class="link"
         :to="path"
@@ -21,7 +21,7 @@
             alt="info.text"
         />
         {{ info.text }}
-    </router-link>
+    </RouterLink>
 </template>
 
 <script>
