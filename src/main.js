@@ -5,15 +5,15 @@ import App from './App.vue';
 import router from './router';
 
 const vueLifecycles = singleSpaVue({
-  createApp,
-  appOptions: {
-    render() {
-      return h(App, {});
+    createApp,
+    appOptions: {
+        render() {
+            return h(App, {});
+        },
     },
-  },
-  handleInstance(app) {
-    app.use(router);
-  },
+    handleInstance(app) {
+        app.use(router);
+    },
 });
 
 export const bootstrap = vueLifecycles.bootstrap;
