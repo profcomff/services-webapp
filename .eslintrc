@@ -25,6 +25,7 @@
             {
                 "registeredComponentsOnly": false
             }
-        ]
+        ],
+        "object-shorthand": "warn"
     }
 }
