@@ -104,8 +104,7 @@ export default {
 
 <style scoped>
 .container {
-    padding: 10px;
-    padding-bottom: 56px;
+    padding: 10px 10px 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
