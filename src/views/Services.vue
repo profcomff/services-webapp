@@ -25,13 +25,17 @@
                 @navigate="route"
             />
         </div>
-        <img :src="kitten" />
+        <img
+            :src="kitten"
+            @click="openDevtools"
+        />
     </div>
 </template>
 
 <script>
 import GridView from '@/components/Menu/Grid.vue';
 import ListView from '@/components/Menu/List.vue';
+import * as singleSpa from 'single-spa';
 
 export default {
     name: 'ServicesWebapp',
@@ -47,6 +51,7 @@ export default {
         return {
             buttons: [],
             loaded: false,
+            devtools_counter: 5,
         };
     },
     computed: {
@@ -97,6 +102,12 @@ export default {
     methods: {
         route(to) {
             this.$emit('route', window.location.pathname, to);
+        },
+        openDevtools() {
+            this.devtools_counter--;
+            if (this.devtools_counter > 0) return;
+            this.devtools_counter = 5;
+            singleSpa.navigateToUrl('/devtools');
         },
     },
 };
