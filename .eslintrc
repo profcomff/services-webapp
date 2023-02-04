@@ -26,6 +26,7 @@
                 "registeredComponentsOnly": false
             }
         ],
-        "object-shorthand": "warn"
+        "object-shorthand": "warn",
+        "no-console": "warn"
     }
 }

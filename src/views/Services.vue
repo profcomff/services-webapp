@@ -69,16 +69,6 @@ export default {
             }),
         );
     },
-    updated() {
-        document.dispatchEvent(
-            new CustomEvent('change-header-layout', {
-                detail: {
-                    layoutName: 'plain',
-                    text: 'Твой физфак!',
-                },
-            }),
-        );
-    },
     async beforeMount() {
         try {
             try {
@@ -132,7 +122,9 @@ export default {
     width: auto;
 }
 img {
-    align-self: flex-end;
+    position: fixed;
+    bottom: 56px;
+    right: 10px;
     width: 3em;
 }
 </style>
