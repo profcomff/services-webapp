@@ -127,4 +127,10 @@ img {
     right: 10px;
     width: 3em;
 }
+
+@media screen and (min-width: 575px) {
+    img {
+        bottom: 0;
+    }
+}
 </style>
