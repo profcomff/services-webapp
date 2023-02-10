@@ -27,6 +27,7 @@
         </div>
         <img
             :src="kitten"
+            class="noselect kitty"
             @click="openDevtools"
         />
     </div>
@@ -121,7 +122,7 @@ export default {
     height: calc(100vh - 56px);
     width: auto;
 }
-img {
+.kitty {
     position: fixed;
     bottom: 56px;
     right: 10px;
@@ -129,7 +130,7 @@ img {
 }
 
 @media screen and (min-width: 575px) {
-    img {
+    .kitty {
         bottom: 0;
     }
 }
