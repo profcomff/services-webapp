@@ -15,12 +15,12 @@
             class="category"
         >
             <GridView
-                v-if="category.type == 'grid3'"
+                v-if="category.type === 'grid3'"
                 :info="category"
                 @navigate="route"
             />
             <ListView
-                v-else-if="category.type == 'list'"
+                v-else-if="category.type === 'list'"
                 :info="category"
                 @navigate="route"
             />
@@ -76,17 +76,12 @@ export default {
                 let res = await fetch(`${process.env.VUE_APP_API_NAVBAR}/apps`);
                 this.buttons = await res.json();
             } catch (err) {
-                this.buttons = JSON.parse(
-                    localStorage.getItem('navbar-buttons'),
-                );
+                this.buttons = JSON.parse(localStorage.getItem('navbar-buttons'));
             }
         } catch (err) {
             console.log(err);
         } finally {
-            localStorage.setItem(
-                'navbar-buttons',
-                JSON.stringify(this.buttons),
-            );
+            localStorage.setItem('navbar-buttons', JSON.stringify(this.buttons));
         }
         this.loaded = true;
     },
