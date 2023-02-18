@@ -13,10 +13,10 @@
     },
     "dependencies": {
         "core-js": "^3.8.3",
+        "profcomff-ui-common": "^0.0.2",
         "single-spa-vue": "^2.1.0",
         "vue": "^3.2.13",
-        "vue-router": "^4.1.5",
-        "profcomff-ui-common": "^0.0.1"
+        "vue-router": "^4.1.5"
     },
     "devDependencies": {
         "@babel/core": "^7.12.16",
@@ -25,8 +25,8 @@
         "@vue/cli-plugin-eslint": "~5.0.0",
         "@vue/cli-service": "~5.0.0",
         "@vue/eslint-config-prettier": "^7.0.0",
-        "eslint": "^7.32.0",
-        "eslint-plugin-vue": "^8.0.3",
+        "eslint": "^8.34.0",
+        "eslint-plugin-vue": "^9.9.0",
         "prettier": "^2.8.3",
         "vue-cli-plugin-single-spa": "~3.3.0"
     },
