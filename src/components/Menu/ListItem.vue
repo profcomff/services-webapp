@@ -5,7 +5,7 @@
         :href="path"
         target="_blank"
     >
-        <span class="material-symbols-sharp icon">{{ info.icon }}</span>
+        <MaterialIcon :icon="info.icon" />
         {{ info.text }}
     </a>
     <RouterLink
@@ -13,16 +13,18 @@
         class="link"
         :to="path"
     >
-        <span class="material-symbols-sharp icon">{{ info.icon }}</span>
+        <MaterialIcon :icon="info.icon" />
         {{ info.text }}
     </RouterLink>
 </template>
 
 <script>
 import { format_url } from '@/utils/urls';
+import { MaterialIcon } from 'profcomff-ui-common/components';
 
 export default {
     name: 'ListItem',
+    components: { MaterialIcon },
     props: {
         info: Object,
     },
