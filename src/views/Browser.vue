@@ -3,7 +3,7 @@
         v-if="!loaded"
         id="loading-wrapper"
     >
-        <div class="lds-dual-ring"></div>
+        <div class="lds-dual-ring" />
     </div>
     <iframe
         id="browser"

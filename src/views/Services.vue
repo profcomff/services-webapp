@@ -3,7 +3,7 @@
         v-if="!loaded"
         class="timetable"
     >
-        <div class="lds-dual-ring"></div>
+        <div class="lds-dual-ring" />
     </div>
     <div
         v-else
@@ -76,17 +76,12 @@ export default {
                 let res = await fetch(`${process.env.VUE_APP_API_NAVBAR}/apps`);
                 this.buttons = await res.json();
             } catch (err) {
-                this.buttons = JSON.parse(
-                    localStorage.getItem('navbar-buttons'),
-                );
+                this.buttons = JSON.parse(localStorage.getItem('navbar-buttons'));
             }
         } catch (err) {
             console.log(err);
         } finally {
-            localStorage.setItem(
-                'navbar-buttons',
-                JSON.stringify(this.buttons),
-            );
+            localStorage.setItem('navbar-buttons', JSON.stringify(this.buttons));
         }
         this.loaded = true;
     },

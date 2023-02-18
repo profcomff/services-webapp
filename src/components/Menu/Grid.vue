@@ -7,7 +7,7 @@
                 :key="b.path"
                 :info="b"
                 @click.capture="$emit('navigate', b.path)"
-            ></GridItem>
+            />
         </div>
     </div>
 </template>

@@ -5,15 +5,15 @@
     "scripts": {
         "start": "vue-cli-service serve --port 9003",
         "build": "vue-cli-service build",
-        "lint": "eslint --ext .vue --ext .js .",
-        "lint:fix": "eslint --ext .vue --ext .js --fix .",
+        "lint": "eslint --ext .vue,.js,.ts .",
+        "lint:fix": "eslint --ext .vue,.js,.ts --fix .",
         "format": "prettier --check .",
         "format:write": "prettier --write .",
         "serve:standalone": "vue-cli-service serve --mode standalone"
     },
     "dependencies": {
         "core-js": "^3.8.3",
-        "profcomff-ui-common": "^0.0.2",
+        "profcomff-ui-common": "^0.0.3",
         "single-spa-vue": "^2.1.0",
         "vue": "^3.2.13",
         "vue-router": "^4.1.5"
