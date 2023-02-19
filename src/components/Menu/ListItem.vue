@@ -20,7 +20,7 @@
 
 <script>
 import { format_url } from '@/utils/urls';
-import { MaterialIcon } from 'profcomff-ui-common/components';
+import { MaterialIcon } from '@profcomff/ui-common/components';
 
 export default {
     name: 'ListItem',
