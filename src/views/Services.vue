@@ -1,48 +1,48 @@
 <template>
-    <div
-        v-if="!loaded"
-        class="timetable"
+    <section
+        v-for="category in categories"
+        :key="category.name"
+        class="section"
     >
-        <div class="lds-dual-ring" />
-    </div>
-    <div
-        v-else
-        class="container"
-    >
+        <h2>{{ category.name }}</h2>
         <div
-            v-for="category in buttons"
-            :key="category.name"
-            class="category"
+            class="grid"
+            v-if="category.type === 'grid3'"
         >
-            <GridView
-                v-if="category.type == 'grid3'"
-                :info="category"
-                @navigate="route"
-            />
-            <ListView
-                v-else-if="category.type == 'list'"
-                :info="category"
-                @navigate="route"
+            <GridItem
+                v-for="item in category.items"
+                :key="item.text"
+                :item="item"
             />
         </div>
-        <img
-            :src="kitten"
-            class="noselect kitty"
-            @click="openDevtools"
-        />
-    </div>
+        <div
+            class="list"
+            v-else-if="category.type === 'list'"
+        >
+            <ListItem
+                v-for="item in category.items"
+                :key="item.text"
+                :item="item"
+            />
+        </div>
+    </section>
+    <img
+        :src="kitten"
+        class="noselect kitty"
+        @click="openDevtools"
+    />
 </template>
 
 <script>
-import GridView from '@/components/Menu/Grid.vue';
-import ListView from '@/components/Menu/List.vue';
 import * as singleSpa from 'single-spa';
+import GridItem from '../components/Menu/GridItem.vue';
+import ListItem from '../components/Menu/ListItem.vue';
 
 export default {
     name: 'ServicesWebapp',
     components: {
-        GridView,
-        ListView,
+        GridItem,
+        ListItem,
     },
     props: {
         mobile: Boolean,
@@ -50,9 +50,8 @@ export default {
     emits: ['route'],
     data() {
         return {
-            buttons: [],
-            loaded: false,
-            devtools_counter: 5,
+            categories: [],
+            devtoolsCounter: 5,
         };
     },
     computed: {
@@ -74,25 +73,21 @@ export default {
         try {
             try {
                 let res = await fetch(`${process.env.VUE_APP_API_NAVBAR}/apps`);
-                this.buttons = await res.json();
+                this.categories = await res.json();
             } catch (err) {
-                this.buttons = JSON.parse(localStorage.getItem('navbar-buttons'));
+                this.categories = JSON.parse(localStorage.getItem('navbar-categories'));
             }
         } catch (err) {
             console.log(err);
         } finally {
-            localStorage.setItem('navbar-buttons', JSON.stringify(this.buttons));
+            localStorage.setItem('navbar-categories', JSON.stringify(this.categories));
         }
-        this.loaded = true;
     },
     methods: {
-        route(to) {
-            this.$emit('route', window.location.pathname, to);
-        },
         openDevtools() {
-            this.devtools_counter--;
-            if (this.devtools_counter > 0) return;
-            this.devtools_counter = 5;
+            this.devtoolsCounter--;
+            if (this.devtoolsCounter > 0) return;
+            this.devtoolsCounter = 5;
             singleSpa.navigateToUrl('/devtools');
         },
     },
@@ -100,22 +95,21 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    padding: 10px 10px 0;
+.grid {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 600px;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-around;
 }
-.timetable {
-    padding: 10px;
-    padding-top: 66px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 56px);
-    width: auto;
+.section {
+    margin-bottom: 16px;
+}
+.section > h2 {
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+.section > div {
+    padding: 0 8px;
 }
 .kitty {
     position: fixed;

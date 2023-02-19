@@ -6,10 +6,14 @@
         target="_blank"
     >
         <img
-            :src="info.icon.src"
-            alt="info.text"
+            :src="item.icon.src"
+            alt="item.text"
+            width="64"
+            height="64"
         />
-        {{ info.text }}
+        <span>
+            {{ item.text }}
+        </span>
     </a>
     <RouterLink
         v-else
@@ -17,10 +21,14 @@
         :to="path"
     >
         <img
-            :src="info.icon.src"
-            alt="info.text"
+            :src="item.icon.src"
+            alt="item.text"
+            width="64"
+            height="64"
         />
-        {{ info.text }}
+        <span>
+            {{ item.text }}
+        </span>
     </RouterLink>
 </template>
 
@@ -30,11 +38,11 @@ import { format_url } from '@/utils/urls';
 export default {
     name: 'GridItem',
     props: {
-        info: Object,
+        item: Object,
     },
     computed: {
         path() {
-            return format_url(this.info.path);
+            return format_url(this.item.path);
         },
     },
 };
@@ -42,29 +50,28 @@ export default {
 
 <style scoped>
 .link {
-    align-self: flex-start;
-    flex-grow: 1;
-    flex-shrink: 1;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 600;
-    padding: 1vmin;
-    color: black;
-    width: 25vmin;
-    height: max-content;
+    font-size: 13px;
     gap: 2px;
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 24px;
+    box-shadow: 1px 1px lightgray;
+    width: 112px;
+    height: 112px;
+    padding: 4px 8px 12px;
 }
 
-.link img {
-    border: 1px solid gray;
-    border-radius: 25%;
-    box-shadow: 1px 1px lightgray;
-    padding: 2.5vmin;
-    width: 20vmin;
+.link > span {
+    text-align: center;
+    color: black;
+    line-height: 90%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-wrap: anywhere;
 }
 </style>

@@ -5,16 +5,16 @@
         :href="path"
         target="_blank"
     >
-        <MaterialIcon :icon="info.icon" />
-        {{ info.text }}
+        <MaterialIcon :icon="item.icon" />
+        {{ item.text }}
     </a>
     <RouterLink
         v-else
         class="link"
         :to="path"
     >
-        <MaterialIcon :icon="info.icon" />
-        {{ info.text }}
+        <MaterialIcon :icon="item.icon" />
+        {{ item.text }}
     </RouterLink>
 </template>
 
@@ -26,11 +26,11 @@ export default {
     name: 'ListItem',
     components: { MaterialIcon },
     props: {
-        info: Object,
+        item: Object,
     },
     computed: {
         path() {
-            return format_url(this.info.path);
+            return format_url(this.item.path);
         },
     },
 };
@@ -52,5 +52,10 @@ export default {
     gap: 0.8em;
     background-color: #f2f2f2;
     border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.link:last-child {
+    margin-bottom: 0;
 }
 </style>
