@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "core-js": "^3.8.3",
-        "profcomff-ui-common": "^0.0.4",
+        "@profcomff/ui-common": "^0.0.6",
         "single-spa-vue": "^2.1.0",
         "vue": "^3.2.13",
         "vue-router": "^4.1.5"
