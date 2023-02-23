@@ -96,13 +96,18 @@ export default {
 
 <style scoped>
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: space-around;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: 32px;
+    column-gap: 8px;
+    width: min(100%, 600px);
 }
 .section {
     margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
 }
 .section > h2 {
     margin-bottom: 8px;
