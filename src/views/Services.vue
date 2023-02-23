@@ -4,7 +4,7 @@
         :key="category.name"
         class="section"
     >
-        <h2>{{ category.name }}</h2>
+        <h2 class="noselect">{{ category.name }}</h2>
         <div
             class="grid"
             v-if="category.type === 'grid3'"
