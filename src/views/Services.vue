@@ -102,15 +102,16 @@ export default {
     justify-items: center;
     row-gap: 32px;
     column-gap: 8px;
-    width: min(100%, 600px);
 }
 .section {
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
+    width: min(100%, 600px);
+    margin: 0 auto;
 }
 .section > h2 {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     align-self: flex-start;
 }
 .section > div {
